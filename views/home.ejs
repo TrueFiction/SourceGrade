@@ -8,12 +8,21 @@
             <input class="form-control" type="text" id="userid" name="sourceid" placeholder="Gradesource ID">
         </div>
         <div class="form-group">
-            <input class="form-control" type="text" name="sourceurl" placeholder="Gradesource overall course URL">
+            <input class="form-control" type="text" id="userurl" name="sourceurl" placeholder="Gradesource overall course URL">
         </div>
         <div class="form-group">
             <button class="btn btn-primary btn-large btn-block">Submit</button>
         </div>
     </form>
 </div>    
+
+<script> 
+    var url = or window.location.href;
+    var captured = /CSE110URL=([^&]+)/.exec(url)[1]; // Value is in [1], true or false
+    var result = captured ? captured : 'Gradesource overall course URL';
+
+    //Fill form with result 
+    document.getElementById('userurl').value = result; 
+</script>
     
 <% include partials/footer %>
